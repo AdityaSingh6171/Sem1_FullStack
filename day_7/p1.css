@@ -1,0 +1,28 @@
+body { 
+    background-color: yellow;
+}
+
+h1 { 
+    color: violet;
+    background-color: red;
+
+    width: 200px;
+    padding: 10px;
+}
+
+h2 {
+    color: red;
+    background-color: white;
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+}
+
+p {
+    background-color: blue;
+    color: white;
+    
+    width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+}

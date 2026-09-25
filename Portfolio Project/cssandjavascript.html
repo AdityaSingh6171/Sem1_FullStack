@@ -1,0 +1,1303 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aditya Singh | AI Student Portfolio</title>
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0a0a0f;
+            color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           ANIMATED BACKGROUND
+        ========================== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #6c63ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.15;
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #00d9ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.1;
+            bottom: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #7c6cff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: #cccccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #7c6cff;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #7c6cff;
+            padding: 5px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 40px rgba(124, 108, 255, 0.35);
+            transition: 0.4s;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(124, 108, 255, 0.55);
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #7c6cff;
+        }
+
+        .hero h2 {
+            color: #bbbbbb;
+            font-size: 22px;
+            font-weight: normal;
+            min-height: 35px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 25px auto;
+            color: #999999;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: 1px solid #7c6cff;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #7c6cff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124, 108, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: #7c6cff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECTION HEADINGS
+        ========================== */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #888888;
+        }
+
+        .section-title span {
+            color: #7c6cff;
+        }
+
+        /* =========================
+           CARDS
+        ========================== */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 25px;
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124, 108, 255, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .card p,
+        .card li {
+            color: #a0a0a0;
+        }
+
+        /* =========================
+           DETAILS
+        ========================== */
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-box {
+            padding: 25px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .detail-box strong {
+            color: #7c6cff;
+        }
+
+        /* =========================
+           VIDEO
+        ========================== */
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* =========================
+           LISTS
+        ========================== */
+
+        .styled-list {
+            list-style: none;
+        }
+
+        .styled-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: #aaaaaa;
+        }
+
+        .styled-list li::before {
+            content: "▹";
+            color: #7c6cff;
+            margin-right: 10px;
+        }
+
+        /* =========================
+           SOCIAL BUTTONS
+        ========================== */
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 12px 22px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: #7c6cff;
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        .contact-form {
+            max-width: 700px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cccccc;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px 15px;
+            border-radius: 10px;
+            border: 1px solid #33333d;
+            background: #111118;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #7c6cff;
+            box-shadow: 0 0 15px rgba(124, 108, 255, 0.15);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            cursor: pointer;
+        }
+
+        .radio-group input {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #aaaaaa;
+        }
+
+        .checkbox input {
+            width: auto;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #7c6cff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124, 108, 255, 0.3);
+        }
+
+        /* =========================
+           MAP
+        ========================== */
+
+        .map-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            max-width: 900px;
+            height: 450px;
+            border-radius: 20px;
+            filter: grayscale(30%);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #777777;
+        }
+
+        footer strong {
+            color: #7c6cff;
+        }
+
+        /* =========================
+           BACK TO TOP
+        ========================== */
+
+        #backToTop {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: #7c6cff;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            z-index: 999;
+            transition: 0.3s;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-5px);
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .profile-image {
+                width: 140px;
+                height: 140px;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+        <div class="logo">Aditya<span>.</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Interests</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <img src="/image.png" alt="Aditya Singh" class="profile-image">
+
+            <h1>Hi, I'm <span>Aditya</span></h1>
+
+            <h2 id="typing-text"></h2>
+
+            <p>
+                A first-year B.Tech Artificial Intelligence student
+                passionate about technology, programming and learning
+                how AI can solve real-world problems.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Explore My Portfolio</a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About <span>Me</span></h2>
+                <p>A little information about me</p>
+            </div>
+
+            <div class="details">
+
+                <div class="detail-box">
+                    <p><strong>Name</strong></p>
+                    <p>Aditya Singh</p>
+                </div>
+
+                <div class="detail-box">
+                    <p><strong>Year</strong></p>
+                    <p>1st Year</p>
+                </div>
+
+                <div class="detail-box">
+                    <p><strong>Course</strong></p>
+                    <p>B.Tech in Artificial Intelligence</p>
+                </div>
+
+                <div class="detail-box">
+                    <p><strong>College</strong></p>
+                    <p>Zenith School of AI</p>
+                </div>
+
+                <div class="detail-box">
+                    <p><strong>Location</strong></p>
+                    <p>Gurugram, Haryana</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VIDEO
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Featured <span>Video</span></h2>
+                <p>A video I'd like to share</p>
+            </div>
+
+            <div class="video-container">
+
+                <iframe
+                    src="https://www.youtube.com/embed/l79ATpmLRzE?si=UmtXrVR-s0BeeTkN"
+                    title="Featured YouTube Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS / INTERESTS
+    ========================== -->
+
+    <section id="skills" class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>My <span>Interests</span></h2>
+                <p>Technologies and subjects I enjoy learning</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="card">
+                    <h3>🤖 Artificial Intelligence</h3>
+                    <p>
+                        Exploring AI concepts and understanding how
+                        intelligent systems work.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🧠 Machine Learning</h3>
+                    <p>
+                        Learning machine learning algorithms and
+                        their practical applications.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🐍 Python</h3>
+                    <p>
+                        Using Python for programming, data analysis
+                        and AI projects.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Data Structures</h3>
+                    <p>
+                        Building a strong foundation in problem
+                        solving and data structures.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>🌐 Web Development</h3>
+                    <p>
+                        Learning HTML, CSS and JavaScript to create
+                        interactive websites.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Projects & <span>Achievements</span></h2>
+                <p>Some things I have worked on</p>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="card">
+                    <h3>Portfolio Website</h3>
+                    <p>
+                        Built a personal portfolio website using
+                        HTML, CSS and JavaScript.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Arduino LED Project</h3>
+                    <p>
+                        Created an Arduino project involving
+                        LED programming and logic.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>AI Launchpad</h3>
+                    <p>
+                        Completed AI Launchpad and learned Python,
+                        NumPy, Pandas, Matplotlib and Seaborn.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>College Activities</h3>
+                    <p>
+                        Participated in different college activities,
+                        clubs and events.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOBBIES
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>My <span>Hobbies</span></h2>
+            </div>
+
+            <div class="card">
+
+                <ul class="styled-list">
+
+                    <li>Playing Cricket</li>
+                    <li>Playing Minecraft</li>
+                    <li>Learning Artificial Intelligence</li>
+                    <li>Watching Anime</li>
+                    <li>Listening to Music</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MOVIES
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Movies & <span>Web Series</span></h2>
+            </div>
+
+            <div class="card-grid">
+
+                <div class="card">
+                    <h3>Demon Slayer</h3>
+                    <p>Anime</p>
+                </div>
+
+                <div class="card">
+                    <h3>Money Heist</h3>
+                    <p>Web Series</p>
+                </div>
+
+                <div class="card">
+                    <h3>3 Idiots</h3>
+                    <p>Movie</p>
+                </div>
+
+                <div class="card">
+                    <h3>The Social Network</h3>
+                    <p>Movie</p>
+                </div>
+
+                <div class="card">
+                    <h3>Interstellar</h3>
+                    <p>Movie</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOCIAL MEDIA
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Connect <span>With Me</span></h2>
+            </div>
+
+            <div class="socials">
+
+                <a class="social-btn"
+                   href="https://www.linkedin.com/in/aditya-singh-001a72408/"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a class="social-btn"
+                   href="https://www.instagram.com/aditya.singh.2408/"
+                   target="_blank">
+                    Instagram
+                </a>
+
+                <a class="social-btn"
+                   href="https://github.com/AdityaSingh6171"
+                   target="_blank">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT INFORMATION
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact <span>Information</span></h2>
+            </div>
+
+            <div class="details">
+
+                <div class="detail-box">
+                    <p><strong>Email</strong></p>
+                    <p>
+                        <a href="mailto:singhaditya6171@gmail.com">
+                            singhaditya6171@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <p><strong>Phone</strong></p>
+                    <p>
+                        <a href="tel:+918318435898">
+                            +91 8318435898
+                        </a>
+                    </p>
+                </div>
+
+                <div class="detail-box">
+                    <p><strong>Address</strong></p>
+                    <p>
+                        Bhuvaneshwar Nagar Colony,
+                        Varanasi, Uttar Pradesh, India
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT FORM
+    ========================== -->
+
+    <section id="contact" class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact <span>Me</span></h2>
+                <p>Have something to discuss? Send me a message.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+
+                <div class="form-group">
+
+                    <label>Name</label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Reason for Contact</label>
+
+                    <select name="reason">
+
+                        <option>General Inquiry</option>
+                        <option>Project</option>
+                        <option>Collaboration</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Where did you find me?</label>
+
+                    <div class="radio-group">
+
+                        <label>
+                            <input type="radio"
+                                   name="source"
+                                   value="linkedin">
+                            LinkedIn
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="source"
+                                   value="instagram">
+                            Instagram
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="source"
+                                   value="college">
+                            College
+                        </label>
+
+                        <label>
+                            <input type="radio"
+                                   name="source"
+                                   value="other">
+                            Other
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group checkbox">
+
+                    <input
+                        type="checkbox"
+                        name="updates"
+                        id="updates">
+
+                    <label for="updates">
+                        Subscribe me to receive updates
+                    </label>
+
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOME ADDRESS / MAP
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>My <span>Location</span></h2>
+
+                <p>
+                    Bhuvaneshwar Nagar Colony,
+                    Varanasi, Uttar Pradesh, India
+                </p>
+            </div>
+
+            <div class="map-container">
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1190.4371175944054!2d82.97898560342271!3d25.3509854345368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1789985065527!5m2!1sen!2sin"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 <strong>Aditya Singh</strong>.
+            All rights reserved.
+        </p>
+
+        <p>
+            Built with HTML, CSS & JavaScript.
+        </p>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+
+    <button id="backToTop">↑</button>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           TYPING ANIMATION
+        ========================== */
+
+        const typingText = document.getElementById("typing-text");
+
+        const roles = [
+            "B.Tech AI Student",
+            "AI & ML Enthusiast",
+            "Python Learner",
+            "Future AI Engineer"
+        ];
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+
+            const currentRole = roles[roleIndex];
+
+            if (!deleting) {
+
+                typingText.textContent =
+                    currentRole.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentRole.length) {
+
+                    deleting = true;
+
+                    setTimeout(typeEffect, 1500);
+
+                    return;
+                }
+
+            } else {
+
+                typingText.textContent =
+                    currentRole.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    roleIndex++;
+
+                    if (roleIndex === roles.length) {
+                        roleIndex = 0;
+                    }
+
+                }
+
+            }
+
+            setTimeout(
+                typeEffect,
+                deleting ? 60 : 100
+            );
+        }
+
+        typeEffect();
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+
+            const windowHeight =
+                window.innerHeight;
+
+            revealElements.forEach(element => {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+        }
+
+        window.addEventListener(
+            "scroll",
+            revealOnScroll
+        );
+
+        revealOnScroll();
+
+
+        /* =========================
+           BACK TO TOP BUTTON
+        ========================== */
+
+        const backToTop =
+            document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 500) {
+
+                backToTop.style.display = "block";
+
+            } else {
+
+                backToTop.style.display = "none";
+
+            }
+
+        });
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.querySelector(
+                        'input[name="name"]'
+                    ).value;
+
+                alert(
+                    "Thanks, " +
+                    name +
+                    "! Your message has been received."
+                );
+
+                contactForm.reset();
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+```

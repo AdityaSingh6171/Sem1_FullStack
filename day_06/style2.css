@@ -1,0 +1,14 @@
+div { 
+    background-color: red;
+}
+
+.inner-box {
+    background-color: blue;
+    width: 200px;
+}
+
+span {
+    background-color: yellow;
+    color: purple
+    width: 200px;
+}
